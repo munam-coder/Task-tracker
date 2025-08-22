@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 8%;
+}
+
+.add-task {
+    display: flex;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.add-task form {
+    display: flex;         
+    align-items: center;   
+    gap: 5px;              
+    margin-top: 15px;
+}
+
+input {
+    border-radius: 7px;
+    border: 2px solid black;
+    height: 30px;
+    width: 23vw;
+    padding-left: 10px;
+}
+
+.btn-add {
+    border: none;
+    background-color: black;   
+    height: 34px;              
+    width: 50px;
+    display: flex;             
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.btn-add img {
+    height: 20px;
+    width: 20px;
+  
+}
+
+
+.display-task{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.check-box{
+    height: 13px;
+    width: 13px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.active-check{
+    height: 13px;
+    width: 13px;
+}
+
+
+.delet-btn{
+   border: none;
+   background: none;
+   cursor: pointer;
+}
+
+.delet-btn img{
+    margin-top: 4px;
+    height: 13px;
+    width: 13px;
+}
+
+.line{
+    height: 1px;
+    width: 100%;
+    background-color: black;
+}
+
