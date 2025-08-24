@@ -3,22 +3,7 @@ let addtask = document.querySelector(".display-task");
 let inp = document.querySelector("input");
 
 
-let todos = [
-    {
-        // id: 1,
-        // description: "",
-        // complete: false,
-    },
-
-    {
-        // id: 2,
-        // description: "",
-        // complete: false,
-    },
-]
-
-
-
+let todos = []
 
 // Select root container
 const app = document.getElementById('app');
@@ -59,14 +44,11 @@ const deocr = document.createElement('div');
 deocr.className = 'deocr';
 container.appendChild(deocr);
 
-
 function rendertodos() {
 
     deocr.innerHTML = "";
 
     todos.forEach(function (user) {
-
-
 
         const displayTask = document.createElement('div');
         displayTask.className = 'display-task';
@@ -80,6 +62,19 @@ function rendertodos() {
         const taskText = document.createElement('p');
         taskText.textContent = user.description;
         displayTask.appendChild(taskText);
+
+        if (user.complete) {
+            taskText.style.textDecoration = "line-through";
+            const checkimg = document.createElement("img");
+            checkimg.src = "tick-svgrepo-com.svg";
+            checkimg.alt = "tick";
+            checkimg.style.width = "13px";
+            checkimg.style.height = "13px";
+            checkBox.appendChild(checkimg);
+
+        }
+
+        displayTask.appendChild(taskText)
 
         // Delete button
         const deleteBtn = document.createElement('button');
@@ -95,41 +90,17 @@ function rendertodos() {
         line.className = 'line';
         deocr.appendChild(line);
 
-
-         document.querySelectorAll(".delet-btn").forEach((btn, index) => {
-           btn.addEventListener("click", () => {
-          todos.splice(index, 1);
-
-          rendertodos();
-         })
-        });
-
-
-        
-     document.querySelectorAll(".check-box").forEach( (btn, index) => {
-          btn.addEventListener("click", () => {
-            if (todos[index].complete === true) {
-                
-                taskText.style.textDecoration = "line-through";
-
-                const checkimg = document.createElement("img");
-                checkimg.src = "tick-svgrepo-com.svg";
-                checkimg.alt = "tick";
-                checkimg.style.width = "13px";
-                checkimg.style.height = "13px";
-                checkBox.appendChild(checkimg);
-
-            }
-
-              rendertodos();
+        deleteBtn.addEventListener("click", () => {
+            todos = todos.filter(t => t.id !== user.id)
+            rendertodos()
         })
-     })
 
-
+        checkBox.addEventListener("click", () => {
+            user.complete = !user.complete
+            rendertodos();
+        })
     })
 
-    
-      
 };
 
 rendertodos(todos)
@@ -137,8 +108,8 @@ rendertodos(todos)
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    if(input.value.trim() !== ""){
-        todos.push({id: Date.now, description: input.value, complete: false,} )
+    if (input.value.trim() !== "") {
+        todos.push({ id: Date.now(), description: input.value, complete: false, })
         rendertodos();
         input.value = ""
     }
