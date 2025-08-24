@@ -20,7 +20,7 @@ A simple and efficient web application to help you manage your daily tasks with 
 3. **Complete a Task:**  
    Click the checkbox (☑️) next to a task. When completed, the task will have a line through it (~~example~~).
 
-Project link ( https://github.com/munam-coder/Task-tracker )
+Project URl ([ https://github.com/munam-coder/Task-tracker](https://roadmap.sh/projects/task-tracker-js) )
 
 ## Technologies Used
 
