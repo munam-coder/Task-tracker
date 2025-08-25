@@ -3,7 +3,7 @@ let addtask = document.querySelector(".display-task");
 let inp = document.querySelector("input");
 
 
-let todos = []
+let todos = [];
 
 // Select root container
 const app = document.getElementById('app');
@@ -114,4 +114,6 @@ form.addEventListener("submit", (e) => {
         input.value = ""
     }
 })
+
+// done by my own 
 
